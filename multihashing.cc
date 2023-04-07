@@ -192,10 +192,10 @@ DECLARE_FUNC(scryptjane) {
     if(!Buffer::HasInstance(target))
         RETURN_EXCEPT("First should be a buffer object.");
 
-    int timestamp = args[1]->Int32Value();
-    int nChainStartTime = args[2]->Int32Value();
-    int nMin = args[3]->Int32Value();
-    int nMax = args[4]->Int32Value();
+    int timestamp = args[1]->Int32Value(context).ToChecked();
+    int nChainStartTime = args[2]->Int32Value(context).ToChecked();
+    int nMin = args[3]->Int32Value(context).ToChecked();
+    int nMax = args[4]->Int32Value(context).ToChecked();
 
     char * input = Buffer::Data(target);
     char output[32];
