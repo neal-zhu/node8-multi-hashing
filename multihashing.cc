@@ -49,7 +49,8 @@ using namespace v8;
     void x(const FunctionCallbackInfo<Value>& args)
 
 #define DECLARE_SCOPE \
-    v8::Isolate* isolate = args.GetIsolate();
+    v8::Isolate* isolate = args.GetIsolate(); \
+    Local<Context> context = isolate->GetCurrentContext();
 
 #define SET_BUFFER_RETURN(x, len) \
     args.GetReturnValue().Set(Buffer::Copy(isolate, x, len).ToLocalChecked());
@@ -95,8 +96,6 @@ using namespace v8;
     if (args.Length() < 1) \
         RETURN_EXCEPT("You must provide one argument."); \
  \
-    Isolate* isolate = args.GetIsolate(); \
-    Local<Context> context = isolate->GetCurrentContext();\
     Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); \
  \
     if(!Buffer::HasInstance(target)) \
@@ -549,8 +548,6 @@ DECLARE_FUNC(cryptonightsoftshell) {
     uint32_t CN_SOFT_SHELL_PAD_MULTIPLIER = (CN_SOFT_SHELL_WINDOW / CN_SOFT_SHELL_MULTIPLIER);
     uint32_t CN_SOFT_SHELL_ITER_MULTIPLIER = (CN_SOFT_SHELL_PAD_MULTIPLIER / 2);
 
-   Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
     uint32_t base_offset = (height % CN_SOFT_SHELL_WINDOW);
@@ -591,8 +588,6 @@ DECLARE_FUNC(chukwa) {
     if (args.Length() < 1)
         RETURN_EXCEPT("You must provide one argument.");
 
-   Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
     if(!Buffer::HasInstance(target))
@@ -617,8 +612,6 @@ DECLARE_FUNC(boolberry) {
     if (args.Length() < 2)
         RETURN_EXCEPT("You must provide two arguments.");
 
-   Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
    Local<Object> target_spad = args[1]->ToObject(context).ToLocalChecked(); 
     uint32_t height = 1;
