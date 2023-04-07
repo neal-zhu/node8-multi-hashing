@@ -137,8 +137,6 @@ DECLARE_FUNC(scrypt) {
    if (args.Length() < 3)
        RETURN_EXCEPT("You must provide buffer to hash, N value, and R value");
 
-   Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
    if(!Buffer::HasInstance(target))
@@ -163,8 +161,6 @@ DECLARE_FUNC(scryptn) {
    if (args.Length() < 2)
        RETURN_EXCEPT("You must provide buffer to hash and N factor.");
 
-      Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
    if(!Buffer::HasInstance(target))
@@ -191,8 +187,6 @@ DECLARE_FUNC(scryptjane) {
     if (args.Length() < 5)
         RETURN_EXCEPT("You must provide two argument: buffer, timestamp as number, and nChainStarTime as number, nMin, and nMax");
 
-   Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
     if(!Buffer::HasInstance(target))
@@ -230,8 +224,6 @@ DECLARE_FUNC(cryptonight) {
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
-       Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
     if(!Buffer::HasInstance(target))
@@ -270,8 +262,6 @@ DECLARE_FUNC(cryptonightdark) {
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
 
-   Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
     if(!Buffer::HasInstance(target))
@@ -309,8 +299,6 @@ DECLARE_FUNC(cryptonightdarklite) {
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
-    Isolate* isolate = args.GetIsolate(); 
-    Local<Context> context = isolate->GetCurrentContext();
     Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
     if(!Buffer::HasInstance(target))
@@ -348,8 +336,6 @@ DECLARE_FUNC(cryptonightlite) {
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
-   Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
     if(!Buffer::HasInstance(target))
@@ -388,8 +374,6 @@ DECLARE_FUNC(cryptonightturtle) {
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
 
-   Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
     if(!Buffer::HasInstance(target))
@@ -428,8 +412,6 @@ DECLARE_FUNC(cryptonightturtlelite) {
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
 
-   Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
     if(!Buffer::HasInstance(target))
@@ -468,8 +450,6 @@ DECLARE_FUNC(cryptonightfast) {
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
 
-   Isolate* isolate = args.GetIsolate(); 
-   Local<Context> context = isolate->GetCurrentContext();
    Local<Object> target = args[0]->ToObject(context).ToLocalChecked(); 
 
     if(!Buffer::HasInstance(target))
