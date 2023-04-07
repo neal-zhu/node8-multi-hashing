@@ -218,7 +218,7 @@ DECLARE_FUNC(cryptonight) {
 
     if (args.Length() >= 2) {
         if(args[1]->IsBoolean())
-            fast = args[1]->BooleanValue();
+            fast = args[1]->BooleanValue(context).ToChecked();
         else if(args[1]->IsUint32())
             cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
@@ -255,7 +255,7 @@ DECLARE_FUNC(cryptonightdark) {
 
     if (args.Length() >= 2) {
         if(args[1]->IsBoolean())
-            fast = args[1]->BooleanValue();
+            fast = args[1]->BooleanValue(context).ToChecked();
         else if(args[1]->IsUint32())
             cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
@@ -293,7 +293,7 @@ DECLARE_FUNC(cryptonightdarklite) {
 
     if (args.Length() >= 2) {
         if(args[1]->IsBoolean())
-            fast = args[1]->BooleanValue();
+            fast = args[1]->BooleanValue(context).ToChecked();
         else if(args[1]->IsUint32())
             cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
@@ -330,7 +330,7 @@ DECLARE_FUNC(cryptonightlite) {
 
     if (args.Length() >= 2) {
         if(args[1]->IsBoolean())
-            fast = args[1]->BooleanValue();
+            fast = args[1]->BooleanValue(context).ToChecked();
         else if(args[1]->IsUint32())
             cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
@@ -367,7 +367,7 @@ DECLARE_FUNC(cryptonightturtle) {
 
     if (args.Length() >= 2) {
         if(args[1]->IsBoolean())
-            fast = args[1]->BooleanValue();
+            fast = args[1]->BooleanValue(context).ToChecked();
         else if(args[1]->IsUint32())
             cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
@@ -405,7 +405,7 @@ DECLARE_FUNC(cryptonightturtlelite) {
 
     if (args.Length() >= 2) {
         if(args[1]->IsBoolean())
-            fast = args[1]->BooleanValue();
+            fast = args[1]->BooleanValue(context).ToChecked();
         else if(args[1]->IsUint32())
             cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
@@ -443,7 +443,7 @@ DECLARE_FUNC(cryptonightfast) {
 
     if (args.Length() >= 2) {
         if(args[1]->IsBoolean())
-            fast = args[1]->BooleanValue();
+            fast = args[1]->BooleanValue(context).ToChecked();
         else if(args[1]->IsUint32())
             cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
@@ -482,7 +482,7 @@ DECLARE_FUNC(cryptonightsoftshell) {
 
     if (args.Length() >= 2) {
         if(args[1]->IsBoolean())
-            fast = args[1]->BooleanValue();
+            fast = args[1]->BooleanValue(context).ToChecked();
         else if(args[1]->IsUint32())
             cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
