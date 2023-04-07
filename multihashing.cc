@@ -142,8 +142,8 @@ DECLARE_FUNC(scrypt) {
    if(!Buffer::HasInstance(target))
        RETURN_EXCEPT("Argument should be a buffer object.");
 
-   unsigned int nValue = args[1]->Uint32Value(context);
-   unsigned int rValue = args[2]->Uint32Value(context);
+   unsigned int nValue = args[1]->Uint32Value(context).ToChecked();
+   unsigned int rValue = args[2]->Uint32Value(context).ToChecked();
 
    char * input = Buffer::Data(target);
    char output[32];
@@ -166,7 +166,7 @@ DECLARE_FUNC(scryptn) {
    if(!Buffer::HasInstance(target))
        RETURN_EXCEPT("Argument should be a buffer object.");
 
-   unsigned int nFactor = args[1]->Uint32Value(context);
+   unsigned int nFactor = args[1]->Uint32Value(context).ToChecked();
 
    char * input = Buffer::Data(target);
    char output[32];
@@ -220,7 +220,7 @@ DECLARE_FUNC(cryptonight) {
         if(args[1]->IsBoolean())
             fast = args[1]->BooleanValue();
         else if(args[1]->IsUint32())
-            cn_variant = args[1]->Uint32Value(context);
+            cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
@@ -257,7 +257,7 @@ DECLARE_FUNC(cryptonightdark) {
         if(args[1]->IsBoolean())
             fast = args[1]->BooleanValue();
         else if(args[1]->IsUint32())
-            cn_variant = args[1]->Uint32Value(context);
+            cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
@@ -295,7 +295,7 @@ DECLARE_FUNC(cryptonightdarklite) {
         if(args[1]->IsBoolean())
             fast = args[1]->BooleanValue();
         else if(args[1]->IsUint32())
-            cn_variant = args[1]->Uint32Value(context);
+            cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
@@ -332,7 +332,7 @@ DECLARE_FUNC(cryptonightlite) {
         if(args[1]->IsBoolean())
             fast = args[1]->BooleanValue();
         else if(args[1]->IsUint32())
-            cn_variant = args[1]->Uint32Value(context);
+            cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
@@ -369,7 +369,7 @@ DECLARE_FUNC(cryptonightturtle) {
         if(args[1]->IsBoolean())
             fast = args[1]->BooleanValue();
         else if(args[1]->IsUint32())
-            cn_variant = args[1]->Uint32Value(context);
+            cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
@@ -407,7 +407,7 @@ DECLARE_FUNC(cryptonightturtlelite) {
         if(args[1]->IsBoolean())
             fast = args[1]->BooleanValue();
         else if(args[1]->IsUint32())
-            cn_variant = args[1]->Uint32Value(context);
+            cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
@@ -445,7 +445,7 @@ DECLARE_FUNC(cryptonightfast) {
         if(args[1]->IsBoolean())
             fast = args[1]->BooleanValue();
         else if(args[1]->IsUint32())
-            cn_variant = args[1]->Uint32Value(context);
+            cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
@@ -484,14 +484,14 @@ DECLARE_FUNC(cryptonightsoftshell) {
         if(args[1]->IsBoolean())
             fast = args[1]->BooleanValue();
         else if(args[1]->IsUint32())
-            cn_variant = args[1]->Uint32Value(context);
+            cn_variant = args[1]->Uint32Value(context).ToChecked();
         else
             RETURN_EXCEPT("Argument 2 should be a boolean or uint32_t");
     }
 
     if (args.Length() >= 3) {
       if (args[2]->IsUint32())
-        height = args[2]->Uint32Value(context);
+        height = args[2]->Uint32Value(context).ToChecked();
       else
         RETURN_EXCEPT("Argument 3 should be an uint32_t");
     }
@@ -504,7 +504,7 @@ DECLARE_FUNC(cryptonightsoftshell) {
 
     if (args.Length() >= 4) {
       if (args[3]->IsUint32()) {
-        CN_SOFT_SHELL_MEMORY = args[3]->Uint32Value(context);
+        CN_SOFT_SHELL_MEMORY = args[3]->Uint32Value(context).ToChecked();
         CN_SOFT_SHELL_ITER  = (CN_SOFT_SHELL_MEMORY / 2);
       } else {
         RETURN_EXCEPT("Argument 4 should be an uint32_t (scratchpad)");
@@ -513,14 +513,14 @@ DECLARE_FUNC(cryptonightsoftshell) {
 
     if (args.Length() >= 5) {
       if (args[4]->IsUint32())
-        CN_SOFT_SHELL_WINDOW = args[4]->Uint32Value(context);
+        CN_SOFT_SHELL_WINDOW = args[4]->Uint32Value(context).ToChecked();
       else
         RETURN_EXCEPT("Argument 6 should be an uint32_t (window)");
     }
 
     if (args.Length() >= 6) {
       if (args[5]->IsUint32())
-        CN_SOFT_SHELL_MULTIPLIER = args[5]->Uint32Value(context);
+        CN_SOFT_SHELL_MULTIPLIER = args[5]->Uint32Value(context).ToChecked();
       else
         RETURN_EXCEPT("Argument 6 should be an uint32_t (multiplier)");
     }
@@ -604,7 +604,7 @@ DECLARE_FUNC(boolberry) {
 
     if(args.Length() >= 3) {
         if(args[2]->IsUint32())
-            height = args[2]->Uint32Value(context);
+            height = args[2]->Uint32Value(context).ToChecked();
         else
             RETURN_EXCEPT("Argument 3 should be an unsigned integer.");
     }
